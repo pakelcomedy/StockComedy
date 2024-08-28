@@ -1,58 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp"
-    android:background="@android:color/darker_gray"
-    android:layout_marginBottom="8dp">
-
-    <TextView
-        android:id="@+id/tvStockName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stock Name"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+    android:layout_margin="8dp"
+    android:padding="16dp"
+    cardview:cardElevation="4dp"
+    cardview:cardCornerRadius="8dp"
+    android:background="@color/colorBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvStockQuantity"
+            android:id="@+id/tvStockName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quantity: 10"/>
+            android:text="Stock Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
 
-        <Space
-            android:layout_width="16dp"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/tvStockQuantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Quantity: 10"
+                android:textColor="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/tvStockPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Price: $100"
+                android:textColor="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/tvStockCurrentValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Current Value: $150"
+                android:textColor="@android:color/darker_gray"/>
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/tvStockPrice"
+            android:id="@+id/tvStockProfitLoss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Price: $100"/>
+            android:text="Profit/Loss: $50"
+            android:textColor="@android:color/holo_green_light"
+            android:layout_marginTop="8dp"/>
 
-        <Space
-            android:layout_width="16dp"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/tvStockCurrentValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Current Value: $150"/>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvStockProfitLoss"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profit/Loss: $50"
-        android:textStyle="italic"
-        android:textColor="@android:color/holo_green_light"/>
-</LinearLayout>
+</androidx.cardview.widget.CardView>

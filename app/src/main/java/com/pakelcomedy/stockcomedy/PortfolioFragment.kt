@@ -25,7 +25,7 @@ class PortfolioFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_portfolio, container, false)
+        return inflater.inflate(R.layout.fragment_portfolio, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +33,6 @@ class PortfolioFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.portfolioContainer)
         recyclerView.layoutManager = LinearLayoutManager(context)
-
         portfolioAdapter = PortfolioAdapter(portfolioItems)
         recyclerView.adapter = portfolioAdapter
     }
