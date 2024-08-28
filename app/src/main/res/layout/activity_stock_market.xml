@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Panel Atas: Informasi Umum Pasar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="#EEEEEE"
+        android:elevation="4dp">
+
+        <!-- Harga Saham Terpilih -->
+        <TextView
+            android:id="@+id/tvSelectedStock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Selected Stock: N/A"
+            android:textSize="16sp"
+            android:textColor="#333333"/>
+
+        <!-- Perubahan Harga Saham -->
+        <TextView
+            android:id="@+id/tvStockChange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Change: N/A"
+            android:textSize="16sp"
+            android:textColor="#333333"/>
+    </LinearLayout>
+
+    <!-- Daftar Saham yang Tersedia -->
+    <ListView
+        android:id="@+id/lvStockList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:paddingTop="8dp"/>
+
+    <!-- Panel Bawah: Tombol Pembelian dan Penjualan -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="16dp">
+
+        <!-- Tombol Beli -->
+        <Button
+            android:id="@+id/btnBuyStock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Buy"
+            android:textAllCaps="false"
+            android:background="@color/purchaseButtonColor"
+            android:textColor="@android:color/white"/>
+
+        <!-- Tombol Jual -->
+        <Button
+            android:id="@+id/btnSellStock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sell"
+            android:textAllCaps="false"
+            android:background="@color/sellButtonColor"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+</LinearLayout>

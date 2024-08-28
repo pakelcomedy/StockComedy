@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Panel untuk Menampilkan Nama Saham dan Harganya -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="16dp">
+
+        <!-- Nama Saham -->
+        <TextView
+            android:id="@+id/tvStockName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Stock Name"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:textStyle="bold"/>
+
+        <!-- Harga Saham -->
+        <TextView
+            android:id="@+id/tvStockPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$0.00"
+            android:textSize="18sp"
+            android:textColor="#00796B"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Panel untuk Menampilkan Perubahan Harga Saham -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="16dp">
+
+        <!-- Perubahan Harga Saham -->
+        <TextView
+            android:id="@+id/tvStockChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change: +0.00%"
+            android:textSize="16sp"
+            android:textColor="@android:color/holo_green_dark"/>
+    </LinearLayout>
+
+    <!-- Tombol Beli dan Jual -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Tombol Beli -->
+        <Button
+            android:id="@+id/btnBuy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Buy"
+            android:textAllCaps="false"
+            android:background="#00796B"
+            android:textColor="@android:color/white"
+            android:layout_margin="4dp"/>
+
+        <Button
+            android:id="@+id/btnSell"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sell"
+            android:textAllCaps="false"
+            android:background="#D32F2F"
+            android:textColor="@android:color/white"
+            android:layout_margin="4dp"/>
+    </LinearLayout>
+
+</LinearLayout>
