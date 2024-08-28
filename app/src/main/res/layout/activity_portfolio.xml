@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="space_between"
         android:paddingBottom="16dp">
 
         <!-- Trading Balance -->
@@ -78,7 +77,7 @@
                 android:id="@+id/tvPnLLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="P&L"
+                android:text="P&amp;L"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -126,7 +125,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="space_between">
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/tvStockQuantity"
@@ -157,7 +156,6 @@
                     android:text="Profit/Loss: $50"
                     android:textStyle="italic"
                     android:textColor="@android:color/holo_green_light"/>
-
             </LinearLayout>
             <!-- End of Example Portfolio Item -->
 

@@ -1,153 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_main.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <!-- Dashboard -->
-    <TextView
-        android:id="@+id/tvBalance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Balance: $0"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+    <!-- Container untuk tampilan fragmen -->
+    <FrameLayout
+        android:id="@+id/frameContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/navigationPanel"
+        android:layout_alignParentTop="true"
+        android:padding="16dp" />
 
-    <!-- Work Area -->
-    <Button
-        android:id="@+id/btnWork"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvBalance"
-        android:layout_marginTop="20dp"
-        android:text="Tap to Earn $1"
-        android:textSize="18sp" />
-
-    <!-- Stock Market Section -->
-    <TextView
-        android:id="@+id/tvStockMarket"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnWork"
-        android:layout_marginTop="30dp"
-        android:text="Stock Market"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <ScrollView
-        android:id="@+id/scrollViewStocks"
+    <!-- Panel Navigasi di bagian bawah -->
+    <LinearLayout
+        android:id="@+id/navigationPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvStockMarket"
-        android:layout_marginTop="10dp">
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@android:color/darker_gray">
 
-        <LinearLayout
-            android:id="@+id/llStockList"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnStockMarket"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:layout_weight="1"
+            android:text="Stock Market" />
 
-            <!-- Stock Item Example -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp"
-                android:background="@android:color/darker_gray">
-
-                <TextView
-                    android:id="@+id/tvStockName"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Stock Name"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tvStockPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$0.00"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/btnBuyStock"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Buy"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
-
-    <!-- Portfolio Section -->
-    <TextView
-        android:id="@+id/tvPortfolio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/scrollViewStocks"
-        android:layout_marginTop="30dp"
-        android:text="Your Portfolio"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <ScrollView
-        android:id="@+id/scrollViewPortfolio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvPortfolio"
-        android:layout_marginTop="10dp">
-
-        <LinearLayout
-            android:id="@+id/llPortfolioList"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnWorkTap"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:layout_weight="1"
+            android:text="Work Tap" />
 
-            <!-- Portfolio Item Example -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp"
-                android:background="@android:color/darker_gray">
-
-                <TextView
-                    android:id="@+id/tvPortfolioStockName"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Stock Name"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tvPortfolioQuantity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Quantity: 0"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tvPortfolioValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$0.00"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/btnSellStock"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sell"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
-
+        <Button
+            android:id="@+id/btnPortfolio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Portfolio" />
+    </LinearLayout>
 </RelativeLayout>
