@@ -1,4 +1,4 @@
-package com.pakelcomedy.stockcomedy
+package com.pakelcomedy.stockcomedy.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.pakelcomedy.stockcomedy.R
 
 class PortfolioFragment : Fragment() {
 

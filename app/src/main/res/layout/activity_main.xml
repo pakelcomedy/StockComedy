@@ -1,45 +1,27 @@
-<!-- activity_main.xml -->
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    <!-- Container untuk tampilan fragmen -->
+    <!-- Container untuk Fragment -->
     <FrameLayout
-        android:id="@+id/frameContainer"
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_above="@+id/navigationPanel"
+        android:layout_above="@id/bottom_navigation_view"
         android:layout_alignParentTop="true"
-        android:padding="16dp" />
+        android:layout_alignParentBottom="true" />
 
-    <!-- Panel Navigasi di bagian bawah -->
-    <LinearLayout
-        android:id="@+id/navigationPanel"
+    <!-- Bottom Navigation View untuk Navigasi Fragment -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="?attr/colorPrimary"
         android:orientation="horizontal"
-        android:background="@android:color/darker_gray">
+        app:menu="@menu/main_menu" />
 
-        <Button
-            android:id="@+id/btnStockMarket"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Stock Market" />
-
-        <Button
-            android:id="@+id/btnWorkTap"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Work Tap" />
-
-        <Button
-            android:id="@+id/btnPortfolio"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Portfolio" />
-    </LinearLayout>
 </RelativeLayout>

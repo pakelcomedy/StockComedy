@@ -4,43 +4,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="16dp"
-    android:background="@android:color/white">
+    android:gravity="center"
+    android:background="@color/colorBackground">
 
-    <!-- Saldo Uang -->
+    <!-- Display Current Earnings or Points -->
     <TextView
-        android:id="@+id/tvCurrentBalance"
+        android:id="@+id/tvCurrentPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Current Balance: $0"
+        android:text="Points: 0"
         android:textSize="24sp"
-        android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="32dp" />
-
-    <!-- Tombol Tap untuk Menghasilkan Uang -->
-    <Button
-        android:id="@+id/btnTapForMoney"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tap to Work"
-        android:textSize="20sp"
         android:textStyle="bold"
-        android:padding="24dp"
-        android:background="@android:color/holo_blue_light"
-        android:textColor="@android:color/white"
-        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="32dp"/>
 
-    <!-- Teks Instruksi (Opsional) -->
-    <TextView
-        android:id="@+id/tvInstruction"
+    <!-- Tap Button for Earning Points -->
+    <Button
+        android:id="@+id/btnTapToEarn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tap the button to earn $1 each time!"
-        android:textSize="16sp"
+        android:text="Tap to Earn"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- Display Last Earned Points -->
+    <TextView
+        android:id="@+id/tvLastEarned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Earned: 0 Points"
+        android:textSize="18sp"
         android:textColor="@android:color/darker_gray"
-        android:layout_gravity="center_horizontal" />
+        android:layout_marginTop="16dp"/>
+
 </LinearLayout>

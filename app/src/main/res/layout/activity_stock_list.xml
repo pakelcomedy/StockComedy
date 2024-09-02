@@ -6,14 +6,14 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Panel untuk Menampilkan Nama Saham dan Harganya -->
+    <!-- Panel for Displaying Stock Name and Price -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingBottom="16dp">
 
-        <!-- Nama Saham -->
+        <!-- Stock Name -->
         <TextView
             android:id="@+id/tvStockName"
             android:layout_width="0dp"
@@ -24,7 +24,7 @@
             android:textColor="#333333"
             android:textStyle="bold"/>
 
-        <!-- Harga Saham -->
+        <!-- Stock Price -->
         <TextView
             android:id="@+id/tvStockPrice"
             android:layout_width="wrap_content"
@@ -35,14 +35,14 @@
             android:textStyle="bold"/>
     </LinearLayout>
 
-    <!-- Panel untuk Menampilkan Perubahan Harga Saham -->
+    <!-- Panel for Displaying Stock Price Change -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingBottom="16dp">
 
-        <!-- Perubahan Harga Saham -->
+        <!-- Stock Price Change -->
         <TextView
             android:id="@+id/tvStockChange"
             android:layout_width="wrap_content"
@@ -52,13 +52,13 @@
             android:textColor="@android:color/holo_green_dark"/>
     </LinearLayout>
 
-    <!-- Tombol Beli dan Jual -->
+    <!-- Buy and Sell Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!-- Tombol Beli -->
+        <!-- Buy Button -->
         <Button
             android:id="@+id/btnBuy"
             android:layout_width="0dp"
@@ -70,6 +70,7 @@
             android:textColor="@android:color/white"
             android:layout_margin="4dp"/>
 
+        <!-- Sell Button -->
         <Button
             android:id="@+id/btnSell"
             android:layout_width="0dp"
