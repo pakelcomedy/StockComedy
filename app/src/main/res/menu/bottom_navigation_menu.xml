@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_portfolio"
+        android:icon="@drawable/ic_portfolio"
+        android:title="Portfolio" />
+    <item
+        android:id="@+id/action_stock_list"
+        android:icon="@drawable/ic_stock_list"
+        android:title="Stock List" />
+    <item
+        android:id="@+id/action_work_tap"
+        android:icon="@drawable/ic_work_tap"
+        android:title="Work Tap" />
+</menu>

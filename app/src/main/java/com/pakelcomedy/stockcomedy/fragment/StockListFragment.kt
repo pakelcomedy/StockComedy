@@ -23,7 +23,7 @@ class StockListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentStockListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -32,28 +32,26 @@ class StockListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Setup RecyclerView
-        stockAdapter = StockAdapter()
+        stockAdapter = StockAdapter(emptyList()) // Initialize with an empty list
         binding.rvStockList.layoutManager = LinearLayoutManager(context)
         binding.rvStockList.adapter = stockAdapter
 
-        // Observasi perubahan data saham
-        stockListViewModel.stockList.observe(viewLifecycleOwner) { stockList ->
-            stockAdapter.submitList(stockList)
+        // Observe changes in stock list
+        stockListViewModel.allStocks.observe(viewLifecycleOwner) { stockList ->
+            stockAdapter.updateStockList(stockList) // Update the adapter with new data
         }
 
-        // Setup tombol beli dan jual
+        // Setup buy and sell buttons
         binding.btnBuyStock.setOnClickListener {
             // Handle buy action
-            // Example: You might show a dialog to select the stock to buy
         }
 
         binding.btnSellStock.setOnClickListener {
             // Handle sell action
-            // Example: You might show a dialog to select the stock to sell
         }
 
-        // Fetch saham dari ViewModel
-        stockListViewModel.fetchStocks()
+        // Fetch stocks from ViewModel
+        stockListViewModel.fetchStocks() // Ensure this method is defined in StockListViewModel
     }
 
     override fun onDestroyView() {

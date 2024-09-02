@@ -7,7 +7,7 @@ import com.pakelcomedy.stockcomedy.databinding.PortfolioItemBinding
 import com.pakelcomedy.stockcomedy.model.Stock
 import com.pakelcomedy.stockcomedy.R
 
-class StockAdapter(private val stockList: List<Stock>) :
+class StockAdapter(private var stockList: List<Stock>) :
     RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
 
     inner class StockViewHolder(private val binding: PortfolioItemBinding) :
@@ -18,10 +18,11 @@ class StockAdapter(private val stockList: List<Stock>) :
             binding.tvStockPrice.text = "Price: $${stock.price}"
             binding.tvStockCurrentValue.text = "Current Value: $${stock.currentValue}"
 
-            val profitLossText = "Profit/Loss: $${stock.profitLoss}"
+            val profitLoss = stock.calculateProfitLoss
+            val profitLossText = "Profit/Loss: $${profitLoss}"
             binding.tvStockProfitLoss.text = profitLossText
             binding.tvStockProfitLoss.setTextColor(
-                if (stock.profitLoss >= 0) {
+                if (profitLoss >= 0) {
                     binding.root.context.getColor(R.color.holo_green_light)
                 } else {
                     binding.root.context.getColor(R.color.holo_red_light)
@@ -42,5 +43,10 @@ class StockAdapter(private val stockList: List<Stock>) :
 
     override fun getItemCount(): Int {
         return stockList.size
+    }
+
+    fun updateStockList(newStockList: List<Stock>) {
+        stockList = newStockList
+        notifyDataSetChanged() // Notify adapter that data has changed
     }
 }
