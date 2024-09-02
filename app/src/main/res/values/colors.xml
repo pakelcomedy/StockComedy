@@ -22,6 +22,6 @@
     <color name="colorDivider">#BDBDBD</color>
 
     <!-- Button Colors -->
-    <color name="colorButtonBuy">#00796B</color> <!-- Teal for Buy button -->
-    <color name="colorButtonSell">#D32F2F</color> <!-- Red for Sell button -->
+    <color name="purchaseButtonColor">#FF5722</color> <!-- Example color value -->
+    <color name="sellButtonColor">#4CAF50</color> <!-- Example color value -->
 </resources>
