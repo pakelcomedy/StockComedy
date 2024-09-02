@@ -36,11 +36,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-    // Enable data binding
-    buildFeatures {
-        dataBinding = true
-    }
 }
 
 dependencies {
@@ -52,9 +47,12 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.0")
 
-    // Add Room dependencies
+    // Room dependencies
     implementation("androidx.room:room-runtime:2.6.0")
     kapt("androidx.room:room-compiler:2.6.0")
+
+    // Room KTX for Kotlin extensions (optional)
+    implementation("androidx.room:room-ktx:2.6.0")
 
     // Kotlin standard library
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")
