@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pakelcomedy.stockcomedy.databinding.PortfolioItemBinding
 import com.pakelcomedy.stockcomedy.model.Stock
+import com.pakelcomedy.stockcomedy.R
 
 class StockAdapter(private val stockList: List<Stock>) :
     RecyclerView.Adapter<StockAdapter.StockViewHolder>() {

@@ -1,10 +1,10 @@
 package com.pakelcomedy.stockcomedy
 
+import com.pakelcomedy.stockcomedy.databinding.ActivityMainBinding
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.pakelcomedy.stockcomedy.databinding.ActivityMainBinding
 import com.pakelcomedy.stockcomedy.fragment.PortfolioFragment
 import com.pakelcomedy.stockcomedy.fragment.StockListFragment
 import com.pakelcomedy.stockcomedy.fragment.WorkTapFragment
@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupNavigation() {
-        // Example of setting up navigation for tabs or bottom navigation
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.action_portfolio -> loadFragment(PortfolioFragment())

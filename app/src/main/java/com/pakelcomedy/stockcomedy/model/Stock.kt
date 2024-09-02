@@ -24,7 +24,6 @@ data class Stock(
     /**
      * Calculate the profit or loss for the stock.
      */
-    fun calculateProfitLoss(): Double {
-        return (currentValue - price) * quantity
-    }
+    val profitLoss: Double
+        get() = (currentValue - price) * quantity
 }

@@ -9,6 +9,8 @@
     <!-- Background Colors -->
     <color name="colorBackground">#FFFFFF</color>
     <color name="colorCardBackground">#F5F5F5</color>
+    <color name="holo_green_light">#00FF00</color>
+    <color name="holo_red_light">#FF0000</color>
 
     <!-- Text Colors -->
     <color name="colorTextPrimary">#212121</color>
