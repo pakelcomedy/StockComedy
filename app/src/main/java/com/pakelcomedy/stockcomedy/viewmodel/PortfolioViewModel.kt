@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.pakelcomedy.stockcomedy.database.StockEntity
 import com.pakelcomedy.stockcomedy.repository.StockRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 class PortfolioViewModel(private val repository: StockRepository) : ViewModel() {
