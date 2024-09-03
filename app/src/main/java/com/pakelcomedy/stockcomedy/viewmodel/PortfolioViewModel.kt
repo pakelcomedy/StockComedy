@@ -13,20 +13,19 @@ class PortfolioViewModel(private val repository: StockRepository) : ViewModel() 
     // Mengambil semua saham dari repository
     val allStocks: Flow<List<StockEntity>> = repository.getAllStocks()
 
-    // Mendapatkan saldo trading saat ini
-    // Misalkan saldo trading disimpan secara terpisah atau bisa dihitung dari saham yang dimiliki
+    // Mendapatkan saldo trading saat ini (berdasarkan harga pembelian)
     val tradingBalance: Flow<Double> = allStocks.map { stocks ->
-        stocks.sumOf { it.price * it.quantity } // Menghitung saldo trading dari harga dan jumlah saham
+        stocks.sumOf { stock -> stock.purchasePrice * stock.quantity } // Menggunakan `purchasePrice` dan `quantity`
     }
 
-    // Mendapatkan ekuitas total
+    // Mendapatkan ekuitas total (berdasarkan harga saat ini)
     val totalEquity: Flow<Double> = allStocks.map { stocks ->
-        stocks.sumOf { it.currentPrice * it.quantity } // Menghitung ekuitas total berdasarkan harga saat ini
+        stocks.sumOf { stock -> stock.currentPrice * stock.quantity } // Menggunakan `currentPrice` dan `quantity`
     }
 
-    // Mendapatkan laba/rugi
+    // Mendapatkan laba/rugi (berdasarkan harga saat ini vs. harga pembelian)
     val profitLoss: Flow<Double> = allStocks.map { stocks ->
-        stocks.sumOf { (it.currentPrice - it.price) * it.quantity } // Menghitung laba/rugi
+        stocks.sumOf { stock -> (stock.currentPrice - stock.purchasePrice) * stock.quantity } // Menggunakan `currentPrice`, `purchasePrice`, dan `quantity`
     }
 
     // Menyisipkan saham baru ke dalam repository
