@@ -48,17 +48,12 @@ com.pakelcomedy.stockcomedy
 │   │   └── LeaderboardViewModel.kt
 │   ├── challenges
 │   │   ├── ChallengesFragment.kt
-│   │   ├── ChallengesViewModel.kt
-│   │   ├── MiniGameFragment.kt
-│   │   └── MiniGameViewModel.kt
+│   │   └── ChallengesViewModel.kt
 │   ├── chart
 │   │   ├── ChartFragment.kt
 │   │   └── ChartViewModel.kt
 │   └── adapter
 │       ├── GeneralAdapter.kt
 │       └── LeaderboardAdapter.kt
-├── utils
-│   ├── Extensions.kt
-│   └── Constants.kt
 └── MainActivity.kt
 ```
