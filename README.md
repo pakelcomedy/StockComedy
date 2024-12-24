@@ -1,7 +1,7 @@
 # StockComedy
 Trading game where you buy, sell, and laugh at wacky stock prices!
 ```
-com.stockcomedy
+com.pakelcomedy.stockcomedy
 ├── data
 │   ├── model
 │   │   ├── Stock.kt
