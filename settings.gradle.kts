@@ -11,7 +11,6 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -22,5 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "StockComedy"
 include(":app")
-
-// Tambahkan baris ini jika Anda memiliki proyek modul lain di luar ":app"
+ 
