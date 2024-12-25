@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">StockComedy</string>
+    <string name="app_name">SC Comedy</string>
+    <string name="tab_stock">Stock</string>
+    <string name="tab_crypto">Crypto</string>
 </resources>
