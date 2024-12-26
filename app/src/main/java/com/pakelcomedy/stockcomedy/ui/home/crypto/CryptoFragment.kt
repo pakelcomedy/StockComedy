@@ -43,7 +43,7 @@ class CryptoFragment : Fragment() {
     // Handle the item click and navigate to the ChartFragment
     private fun onCryptoItemClicked(cryptoName: String) {
         val bundle = Bundle()
-        bundle.putBoolean("isFromCrypto", true)
+        bundle.putBoolean("isFromCrypto", true) // Mark that we are coming from CryptoFragment
         findNavController().navigate(R.id.action_cryptoFragment_to_chartFragment, bundle)
     }
 }

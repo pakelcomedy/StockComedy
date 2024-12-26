@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pakelcomedy.stockcomedy.databinding.FragmentChartBinding
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import androidx.viewpager2.widget.ViewPager2
 
 class ChartFragment : Fragment() {
 
@@ -28,11 +26,8 @@ class ChartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Retrieve the argument to check if it's from CryptoFragment
-        val isFromCrypto = arguments?.getBoolean("isFromCrypto") ?: false
-        if (isFromCrypto) {
-            binding.tabLayout.visibility = View.GONE
-        }
+        // Get the 'isFromCrypto' argument passed from the previous fragment
+        val isFromCrypto = arguments?.getBoolean("isFromCrypto", false) ?: false
 
         // Setup ViewPager2 with adapter
         chartPagerAdapter = ChartPagerAdapter(requireActivity())
@@ -46,6 +41,19 @@ class ChartFragment : Fragment() {
                 2 -> tab.text = "Profile"
             }
         }.attach()
+
+        // Conditionally hide tabs based on isFromCrypto flag
+        if (isFromCrypto) {
+            // Check if TabLayout is initialized
+            binding.tabLayout.post {
+                // Ensure the TabLayout is fully initialized before removing tabs
+                if (binding.tabLayout.tabCount > 0) {
+                    // Remove Key Stats and Profile tabs (indexes 0 and 2)
+                    binding.tabLayout.removeTabAt(0) // Remove Key Stats tab
+                    binding.tabLayout.removeTabAt(1) // Remove Profile tab (now at index 1)
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {
