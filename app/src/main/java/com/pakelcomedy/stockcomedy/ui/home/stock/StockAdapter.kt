@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pakelcomedy.stockcomedy.R
 import com.pakelcomedy.stockcomedy.data.model.Stock
 
-class StockAdapter(private val stockList: List< Stock>) : RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
+class StockAdapter(
+    private val stockList: List<Stock>,
+    private val itemClickListener: (String) -> Unit // Lambda to handle item click
+) : RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
 
     class StockViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val stockName: TextView = view.findViewById(R.id.stockName)
@@ -30,6 +33,10 @@ class StockAdapter(private val stockList: List< Stock>) : RecyclerView.Adapter<S
         holder.stockChange.setTextColor(
             if (stock.change.startsWith("-")) Color.RED else Color.GREEN
         )
+
+        holder.itemView.setOnClickListener {
+            itemClickListener(stock.name) // Trigger the lambda
+        }
     }
 
     override fun getItemCount(): Int {

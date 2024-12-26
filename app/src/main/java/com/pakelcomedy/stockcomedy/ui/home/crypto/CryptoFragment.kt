@@ -5,10 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.pakelcomedy.stockcomedy.data.model.Crypto
 import com.pakelcomedy.stockcomedy.R
+import com.pakelcomedy.stockcomedy.data.model.Crypto
 
 class CryptoFragment : Fragment() {
 
@@ -29,10 +30,20 @@ class CryptoFragment : Fragment() {
             Crypto("Cardano", "$0.45", "+2.5%")
         )
 
-        cryptoAdapter = CryptoAdapter(cryptoList)
+        // Set the adapter with a click listener
+        cryptoAdapter = CryptoAdapter(cryptoList) { cryptoName ->
+            onCryptoItemClicked(cryptoName)
+        }
         cryptoRecyclerView.adapter = cryptoAdapter
         cryptoRecyclerView.layoutManager = LinearLayoutManager(context)
 
         return view
+    }
+
+    // Handle the item click and navigate to the ChartFragment
+    private fun onCryptoItemClicked(cryptoName: String) {
+        val bundle = Bundle()
+        bundle.putBoolean("isFromCrypto", true)
+        findNavController().navigate(R.id.action_cryptoFragment_to_chartFragment, bundle)
     }
 }

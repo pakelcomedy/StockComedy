@@ -22,6 +22,12 @@
         android:name="com.pakelcomedy.stockcomedy.ui.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_stockFragment_to_chartFragment"
+            app:destination="@id/chartFragment" />
+        <action
+            android:id="@+id/action_cryptoFragment_to_chartFragment"
+            app:destination="@id/chartFragment" />
     </fragment>
 
     <!-- Earn Money Fragment -->
@@ -32,10 +38,46 @@
         tools:layout="@layout/fragment_earn_money">
     </fragment>
 
-    <!-- Portofolio Fragment -->
+    <!-- Portfolio Fragment -->
     <fragment
         android:id="@+id/navigation_portofolio"
         android:name="com.pakelcomedy.stockcomedy.ui.portfolio.PortfolioFragment"
-        android:label="Portofolio"
+        android:label="Portfolio"
         tools:layout="@layout/fragment_portfolio"/>
+
+    <!-- Chart Fragment -->
+    <fragment
+        android:id="@+id/chartFragment"
+        android:name="com.pakelcomedy.stockcomedy.ui.chart.ChartFragment"
+        android:label="Chart Fragment">
+        <argument
+            android:name="assetName"
+            app:argType="string" />
+    </fragment>
+
+    <!-- Stock Fragment -->
+    <fragment
+        android:id="@+id/stockFragment"
+        android:name="com.pakelcomedy.stockcomedy.ui.home.stock.StockFragment"
+        android:label="Stock Fragment">
+        <action
+            android:id="@+id/action_stockFragment_to_chartFragment"
+            app:destination="@id/chartFragment" />
+    </fragment>
+
+    <!-- Crypto Fragment -->
+    <fragment
+        android:id="@+id/cryptoFragment"
+        android:name="com.pakelcomedy.stockcomedy.ui.home.crypto.CryptoFragment"
+        android:label="Crypto Fragment">
+        <action
+            android:id="@+id/action_cryptoFragment_to_chartFragment"
+            app:destination="@id/chartFragment">
+            <argument
+                android:name="isFromCrypto"
+                app:argType="boolean"
+                android:defaultValue="true" />
+        </action>
+    </fragment>
+
 </navigation>

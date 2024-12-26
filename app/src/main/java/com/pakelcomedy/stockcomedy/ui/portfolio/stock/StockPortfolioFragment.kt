@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pakelcomedy.stockcomedy.R
-import com.pakelcomedy.stockcomedy.data.model.CryptoPortfolio
 import com.pakelcomedy.stockcomedy.data.model.StockPortfolio
+import androidx.navigation.fragment.findNavController
 
 class StockPortfolioFragment : Fragment() {
 
