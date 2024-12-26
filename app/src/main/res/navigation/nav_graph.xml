@@ -16,9 +16,36 @@
             app:destination="@id/homeFragment" />
     </fragment>
 
+    <!-- Home Fragment -->
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.pakelcomedy.stockcomedy.ui.home.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home" />
-    </navigation>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_earnFragment"
+            app:destination="@id/earnFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_portoFragment"
+            app:destination="@id/portoFragment" />
+    </fragment>
+
+    <!-- Earn Money Fragment -->
+    <fragment
+        android:id="@+id/earnFragment"
+        android:name="com.pakelcomedy.stockcomedy.ui.earnmoney.EarnMoneyFragment"
+        android:label="Earn Money">
+        <action
+            android:id="@+id/action_earnFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_earnFragment_to_portoFragment"
+            app:destination="@id/portoFragment" />
+    </fragment>
+
+    <!-- Portofolio Fragment -->
+    <fragment
+        android:id="@+id/portoFragment"
+        android:name="com.pakelcomedy.stockcomedy.ui.portfolio.PortfolioFragment"
+        android:label="Portofolio" />
+</navigation>
