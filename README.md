@@ -113,3 +113,36 @@ res
     ├── network_security_config.xml
     └── shortcuts.xml
 ```
+```
+stock-comedy/
+│
+├── index.html                # Halaman landing utama
+├── about.html                # Halaman Tentang
+├── news.html                 # Halaman Berita
+├── stocks.html               # Halaman List Saham
+├── crypto.html               # Halaman List Crypto
+├── ipo.html                  # Halaman Saham IPO
+│
+├── assets/                   # Folder untuk file aset seperti gambar, ikon, dll
+│   ├── images/               # Gambar untuk website
+│   └── styles/               # CSS khusus
+│       └── custom.css        # Custom CSS untuk tampilan website
+│
+├── js/                       # Folder untuk file JavaScript
+│   ├── app.js                # File JS utama untuk handling interaksi website
+│   ├── firebase.js           # Konfigurasi dan integrasi dengan Firebase
+│   └── stock.js              # File JS untuk mengambil dan mengatur data saham
+│
+├── server/                   # Folder untuk file Node.js (backend)
+│   ├── index.js              # File utama server Node.js (misal: Express app)
+│   ├── stockController.js    # File untuk logika terkait perubahan harga saham dan volatilitas
+│   └── newsController.js     # File untuk logika pengiriman berita otomatis
+│
+├── .github/                  # Folder untuk GitHub Actions
+│   └── workflows/            # Folder untuk definisi action workflows
+│       └── nodejs.yml        # Workflow file untuk otomatisasi tugas menggunakan Node.js
+│
+├── .gitignore                # File untuk mengabaikan file/folder tertentu dari Git
+├── package.json              # File untuk dependensi Node.js
+└── README.md                 # Dokumentasi proyek
+```
