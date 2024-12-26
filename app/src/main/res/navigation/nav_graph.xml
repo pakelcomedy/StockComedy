@@ -67,6 +67,9 @@
         <argument
             android:name="assetName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_chartFragment_to_portfolioFragment"
+            app:destination="@id/navigation_portofolio" />
     </fragment>
 
     <!-- Stock Fragment -->

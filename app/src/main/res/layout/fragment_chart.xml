@@ -1,178 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#141414"
-    android:fillViewport="true"
-    tools:context=".MainActivity">
+    android:paddingBottom="16dp">
 
+    <!-- Header Navigation -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="16dp">
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
 
-        <!-- Header Navigation -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow"
+            android:contentDescription="Back Arrow"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:gravity="center_vertical">
+            android:layout_marginStart="16dp"
+            android:text="BTC/USD"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_arrow"
-                android:contentDescription="Back Arrow"
-                app:tint="#FFFFFF" />
+    <!-- Current Price -->
+    <TextView
+        android:id="@+id/currentPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="21,000"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <!-- Placeholder Chart -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#141414">
+
+        <!-- Y-Axis Labels -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="BTC/USD"
+                android:text="23,000"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:textSize="14sp" />
 
-        <!-- Current Price -->
-        <TextView
-            android:id="@+id/currentPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="21,000"
-            android:textColor="#FFFFFF"
-            android:textSize="32sp"
-            android:textStyle="bold" />
-
-        <!-- Placeholder Chart -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#141414">
-
-            <!-- Y-Axis Labels -->
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="23,000"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="22,000"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:layout_marginTop="40dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="21,000"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:layout_marginTop="40dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20,000"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:layout_marginTop="40dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="19,000"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:layout_marginTop="40dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="18,000"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:layout_marginTop="40dp" />
-            </LinearLayout>
-
-            <!-- Placeholder for Chart -->
-            <ImageView
-                android:id="@+id/placeholderChart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="50dp"
-                android:contentDescription="Placeholder Chart"
-                android:scaleType="centerInside" />
-        </RelativeLayout>
-
-        <!-- Buy and Sell Buttons -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:gravity="center"
-            android:weightSum="2">
-
-            <Button
-                android:id="@+id/buyButton"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:text="Buy"
-                android:backgroundTint="#4CAF50"
+                android:text="22,000"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+                android:textSize="14sp"
+                android:layout_marginTop="40dp" />
 
-            <Button
-                android:id="@+id/sellButton"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:text="Sell"
-                android:backgroundTint="#F44336"
+                android:text="21,000"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+                android:textSize="14sp"
+                android:layout_marginTop="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20,000"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginTop="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="19,000"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginTop="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18,000"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginTop="40dp" />
         </LinearLayout>
 
-        <!-- Tab Navigation (Key Stats, Order Book, Profile) -->
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
+        <!-- Placeholder for Chart -->
+        <ImageView
+            android:id="@+id/placeholderChart"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="50dp"
+            android:contentDescription="Placeholder Chart"
+            android:scaleType="centerInside" />
+    </RelativeLayout>
+
+    <!-- Buy and Sell Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/buyButton"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="#141414"
-            app:tabIndicatorColor="#4CAF50"
-            app:tabTextColor="#FFFFFF"
-            app:tabSelectedTextColor="#4CAF50"/>
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="Buy"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp" />
 
-        <!-- ViewPager for content (Key Stats, Order Book, Profile) -->
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+        <Button
+            android:id="@+id/sellButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Sell"
+            android:backgroundTint="#F44336"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp" />
     </LinearLayout>
-</ScrollView>
+
+    <!-- Tab Navigation (Key Stats, Order Book, Profile) -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#141414"
+        app:tabIndicatorColor="#4CAF50"
+        app:tabTextColor="#FFFFFF"
+        app:tabSelectedTextColor="#4CAF50"/>
+
+    <!-- ViewPager for content (Key Stats, Order Book, Profile) -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" /> <!-- Make sure ViewPager takes remaining space -->
+</LinearLayout>

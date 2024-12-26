@@ -5,8 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.pakelcomedy.stockcomedy.databinding.FragmentChartBinding
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
+import com.pakelcomedy.stockcomedy.databinding.FragmentChartBinding
 
 class ChartFragment : Fragment() {
 
@@ -18,13 +19,18 @@ class ChartFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentChartBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Setup tombol back
+        binding.back.setOnClickListener {
+            findNavController().navigateUp() // Gunakan Navigation Component untuk kembali
+        }
 
         // Get the 'isFromCrypto' argument passed from the previous fragment
         val isFromCrypto = arguments?.getBoolean("isFromCrypto", false) ?: false
@@ -44,13 +50,11 @@ class ChartFragment : Fragment() {
 
         // Conditionally hide tabs based on isFromCrypto flag
         if (isFromCrypto) {
-            // Check if TabLayout is initialized
             binding.tabLayout.post {
-                // Ensure the TabLayout is fully initialized before removing tabs
                 if (binding.tabLayout.tabCount > 0) {
-                    // Remove Key Stats and Profile tabs (indexes 0 and 2)
+                    // Remove tabs starting from the highest index to avoid shifting
+                    binding.tabLayout.removeTabAt(binding.tabLayout.tabCount - 1) // Remove Profile tab
                     binding.tabLayout.removeTabAt(0) // Remove Key Stats tab
-                    binding.tabLayout.removeTabAt(1) // Remove Profile tab (now at index 1)
                 }
             }
         }
