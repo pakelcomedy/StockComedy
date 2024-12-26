@@ -26,53 +26,69 @@ class MainActivity : AppCompatActivity() {
         // Set the status bar color and icons
         window.statusBarColor = ContextCompat.getColor(this, R.color.darkGray)
 
-        // Ensure compatibility with different Android versions
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            binding.root.viewTreeObserver.addOnPreDrawListener {
-                val insetsController = window.insetsController
-                insetsController?.setSystemBarsAppearance(
-                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
-                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-                )
-                true
-            }
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            @Suppress("DEPRECATION")
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
-
         // Set the Toolbar as the ActionBar
         setSupportActionBar(binding.toolbar)
 
-        // Find the NavController
+        // Get the NavController from the NavHostFragment
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
         val navController = navHostFragment.navController
 
-        // Define AppBarConfiguration for fragments with no up button
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home,
-                R.id.navigation_earn,
-                R.id.navigation_portofolio
-            )
-        )
+        // Set up the BottomNavigationView with the NavController
+        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    navController.navigate(R.id.navigation_home)
+                    true
+                }
+                R.id.navigation_earn -> {
+                    navController.navigate(R.id.navigation_earn)
+                    true
+                }
+                R.id.navigation_portofolio -> {
+                    navController.navigate(R.id.navigation_portofolio)
+                    true
+                }
+                else -> false
+            }
+        }
 
         // Set up the ActionBar with NavController
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.navigation_home, R.id.navigation_earn, R.id.navigation_portofolio)
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        // Add destination changed listener to control visibility of the ActionBar
+        // Add destination changed listener to control visibility of the ActionBar and BottomNavigation
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.splashFragment, R.id.homeFragment -> {
-                    // Hide the action bar when navigating to SplashFragment or HomeFragment
+                R.id.splashFragment -> {
+                    // Hide the action bar and bottom navigation when navigating to SplashFragment
                     supportActionBar?.hide()
+                    binding.bottomNavigation.visibility = View.GONE
+                    binding.toolbar.visibility = View.GONE
+                }
+                R.id.navigation_home -> {
+                    // Show the action bar and bottom navigation
+                    supportActionBar?.show()
+                    binding.bottomNavigation.visibility = View.VISIBLE
+                    binding.toolbar.visibility = View.GONE
+                }
+                R.id.navigation_earn -> {
+                    // Show the action bar and bottom navigation
+                    supportActionBar?.show()
+                    binding.bottomNavigation.visibility = View.VISIBLE
+                    binding.toolbar.visibility = View.GONE
                 }
                 else -> {
-                    // Show the action bar for other fragments
+                    // Show the action bar and bottom navigation for other fragments
                     supportActionBar?.show()
+                    binding.bottomNavigation.visibility = View.VISIBLE
                 }
             }
         }
+
+        // Set default selected item in the BottomNavigationView
+        binding.bottomNavigation.selectedItemId = R.id.navigation_home
     }
 
     override fun onSupportNavigateUp(): Boolean {

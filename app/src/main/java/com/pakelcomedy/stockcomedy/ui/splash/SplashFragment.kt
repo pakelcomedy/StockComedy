@@ -17,7 +17,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        splashViewModel = ViewModelProvider(this)[SplashViewModel::class.java]
+        splashViewModel = ViewModelProvider(this).get(SplashViewModel::class.java)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,15 +37,27 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 
         // Observe ViewModel data (optional)
         splashViewModel.appVersion.observe(viewLifecycleOwner) { version ->
-            println("App Version: $version")
+            println("App Version: $version") // Handle the app version if needed
         }
 
-        // Navigate to the next screen after a delay
+        // Navigate to the next screen after a delay (with animation)
         Handler(Looper.getMainLooper()).postDelayed({
-            // Add scale animation before navigating
+            // Apply scale animation to the title before navigating
             val scaleAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.scale_up)
             tvAppTitle.startAnimation(scaleAnimation)
-            findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
-        }, 3000) // 3 seconds delay
+
+            // After the animation ends, navigate to the next fragment
+            scaleAnimation.setAnimationListener(object : android.view.animation.Animation.AnimationListener {
+                override fun onAnimationStart(animation: android.view.animation.Animation?) {}
+
+                override fun onAnimationEnd(animation: android.view.animation.Animation?) {
+                    // Ensure the transition occurs after the animation ends
+                    findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+                }
+
+                override fun onAnimationRepeat(animation: android.view.animation.Animation?) {}
+            })
+
+        }, 3000) // 3 seconds delay for splash screen
     }
 }

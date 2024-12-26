@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#141414">
+
+    <!-- Cash Balance Section -->
+    <RelativeLayout
+        android:id="@+id/cashBalanceContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/cashBalanceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cash Balance"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/accountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Account"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/cashBalanceValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_below="@id/cashBalanceLabel"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp" />
+    </RelativeLayout>
+
+    <!-- Tap to Earn Section -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/tapIcon"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/ic_tap_earn"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tapToEarnText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap To Earn"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+
+    <!-- New clickable area below cashBalanceContainer -->
+    <LinearLayout
+        android:id="@+id/clickableArea"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/cashBalanceContainer"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+    </LinearLayout>
+
+</RelativeLayout>
