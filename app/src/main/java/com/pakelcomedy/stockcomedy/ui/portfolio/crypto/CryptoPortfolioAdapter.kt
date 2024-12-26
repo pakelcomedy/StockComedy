@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pakelcomedy.stockcomedy.R
 import com.pakelcomedy.stockcomedy.data.model.CryptoPortfolio
 
-class CryptoPortfolioAdapter(private val cryptoList: List<CryptoPortfolio>) :
-    RecyclerView.Adapter<CryptoPortfolioAdapter.CryptoViewHolder>() {
+class CryptoPortfolioAdapter(
+    private val cryptoList: List<CryptoPortfolio>,
+    private val onItemClick: (CryptoPortfolio) -> Unit // Add click handler
+) : RecyclerView.Adapter<CryptoPortfolioAdapter.CryptoViewHolder>() {
 
     class CryptoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val cryptoName: TextView = view.findViewById(R.id.cryptoName)
@@ -34,6 +36,11 @@ class CryptoPortfolioAdapter(private val cryptoList: List<CryptoPortfolio>) :
         holder.cryptoPnL.setTextColor(
             if (crypto.pnl.contains("-")) Color.RED else Color.GREEN
         )
+
+        // Set click listener for each item
+        holder.itemView.setOnClickListener {
+            onItemClick(crypto)
+        }
     }
 
     override fun getItemCount(): Int = cryptoList.size

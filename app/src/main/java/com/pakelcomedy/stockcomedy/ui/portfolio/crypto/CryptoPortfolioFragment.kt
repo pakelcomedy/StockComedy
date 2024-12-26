@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pakelcomedy.stockcomedy.data.model.CryptoPortfolio
 import com.pakelcomedy.stockcomedy.databinding.FragmentCryptoPortfolioBinding
@@ -23,14 +24,20 @@ class CryptoPortfolioFragment : Fragment() {
     ): View? {
         _binding = FragmentCryptoPortfolioBinding.inflate(inflater, container, false)
 
-        // Initialize RecyclerView
-        cryptoPortfolioAdapter = CryptoPortfolioAdapter(cryptoList)
+        // Initialize RecyclerView with adapter and click listener
+        cryptoPortfolioAdapter = CryptoPortfolioAdapter(cryptoList) { crypto ->
+            // On item click, navigate to the ChartFragment and pass the crypto name as assetName
+            val action = CryptoPortfolioFragmentDirections
+                .actionCryptoPortfolioFragmentToChartFragment(crypto.name) // Pass the crypto name as assetName
+            findNavController().navigate(action)
+        }
+
         binding.cryptoPortfolioRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = cryptoPortfolioAdapter
         }
 
-        // Load sample data
+        // Load sample data into the adapter
         loadSampleData()
 
         return binding.root
@@ -38,9 +45,10 @@ class CryptoPortfolioFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null // Avoid memory leaks
+        _binding = null // Clean up binding to avoid memory leaks
     }
 
+    // Load sample data into the list
     private fun loadSampleData() {
         cryptoList.apply {
             clear() // Clear any existing data

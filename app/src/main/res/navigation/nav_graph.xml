@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -43,7 +42,22 @@
         android:id="@+id/navigation_portofolio"
         android:name="com.pakelcomedy.stockcomedy.ui.portfolio.PortfolioFragment"
         android:label="Portfolio"
-        tools:layout="@layout/fragment_portfolio"/>
+        tools:layout="@layout/fragment_portfolio">
+        <action
+            android:id="@+id/actionStockPortfolioFragmentToChartFragment"
+            app:destination="@id/chartFragment">
+            <argument
+                android:name="assetName"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/actionCryptoPortfolioFragmentToChartFragment"
+            app:destination="@id/chartFragment">
+            <argument
+                android:name="assetName"
+                app:argType="string" />
+        </action>
+    </fragment>
 
     <!-- Chart Fragment -->
     <fragment
@@ -80,4 +94,27 @@
         </action>
     </fragment>
 
+    <fragment
+        android:id="@+id/stockPortfolioFragment"
+        android:name="com.pakelcomedy.stockcomedy.ui.portfolio.stock.StockPortfolioFragment"
+        android:label="Portfolio"
+        tools:layout="@layout/fragment_stock_portfolio">
+        <action
+            android:id="@+id/actionStockPortfolioFragmentToChartFragment"
+            app:destination="@id/chartFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cryptoPortfolioFragment"
+        android:name="com.pakelcomedy.stockcomedy.ui.portfolio.crypto.CryptoPortfolioFragment"
+        android:label="Crypto Portfolio"
+        tools:layout="@layout/fragment_crypto_portfolio">
+        <action
+            android:id="@+id/actionCryptoPortfolioFragmentToChartFragment"
+            app:destination="@id/chartFragment">
+            <argument
+                android:name="assetName"
+                app:argType="string" />
+        </action>
+    </fragment>
 </navigation>

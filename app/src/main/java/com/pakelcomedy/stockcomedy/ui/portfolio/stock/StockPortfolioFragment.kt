@@ -22,9 +22,10 @@ class StockPortfolioFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_stock_portfolio, container, false)
 
-        // Menghubungkan RecyclerView
+        // Initialize RecyclerView
         portfolioRecyclerView = view.findViewById(R.id.portfolioRecyclerView)
 
+        // Sample portfolio data
         val portfolioList = listOf(
             StockPortfolio("AAPL", "$42,000", "-$1,000 (-2%)"),
             StockPortfolio("GOOGL", "$3,000", "+$200 (+7%)"),
@@ -33,9 +34,13 @@ class StockPortfolioFragment : Fragment() {
             StockPortfolio("TSLA", "$0.07", "-$0.02 (-22%)")
         )
 
-
-        // Inisialisasi Adapter dan LayoutManager
-        portfolioAdapter = StockPortfolioAdapter(portfolioList)
+        // Initialize Adapter and LayoutManager
+        portfolioAdapter = StockPortfolioAdapter(portfolioList) { stock ->
+            // On item click, navigate to the ChartFragment
+            val action = StockPortfolioFragmentDirections
+                .actionStockPortfolioFragmentToChartFragment(stock.name) // Pass stock name or symbol
+            findNavController().navigate(action)
+        }
         portfolioRecyclerView.adapter = portfolioAdapter
         portfolioRecyclerView.layoutManager = LinearLayoutManager(context)
 

@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pakelcomedy.stockcomedy.R
 import com.pakelcomedy.stockcomedy.data.model.StockPortfolio
 
-class StockPortfolioAdapter(private val portfolioList: List<StockPortfolio>) :
-    RecyclerView.Adapter<StockPortfolioAdapter.PortfolioViewHolder>() {
+class StockPortfolioAdapter(
+    private val portfolioList: List<StockPortfolio>,
+    private val onItemClick: (StockPortfolio) -> Unit // Callback to handle click event
+) : RecyclerView.Adapter<StockPortfolioAdapter.PortfolioViewHolder>() {
 
     class PortfolioViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val stockName: TextView = view.findViewById(R.id.stockName)
@@ -21,7 +23,7 @@ class StockPortfolioAdapter(private val portfolioList: List<StockPortfolio>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PortfolioViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_stock_portofolio, parent, false) // Gunakan nama XML yang benar
+            .inflate(R.layout.item_stock_portofolio, parent, false) // Use the correct XML name
         return PortfolioViewHolder(view)
     }
 
@@ -32,10 +34,15 @@ class StockPortfolioAdapter(private val portfolioList: List<StockPortfolio>) :
         holder.stockPrice.text = stock.price
         holder.stockPL.text = stock.pnl
 
-        // Set warna berdasarkan Profit atau Loss
+        // Set color based on Profit or Loss
         holder.stockPL.setTextColor(
             if (stock.pnl.contains("Profit")) Color.GREEN else Color.RED
         )
+
+        // Handle item click
+        holder.itemView.setOnClickListener {
+            onItemClick(stock) // Pass the clicked stock to the callback
+        }
     }
 
     override fun getItemCount(): Int = portfolioList.size
