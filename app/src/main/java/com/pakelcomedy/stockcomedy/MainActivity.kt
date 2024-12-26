@@ -79,6 +79,12 @@ class MainActivity : AppCompatActivity() {
                     binding.bottomNavigation.visibility = View.VISIBLE
                     binding.toolbar.visibility = View.GONE
                 }
+                R.id.navigation_portofolio -> {
+                    // Show the action bar and bottom navigation
+                    supportActionBar?.show()
+                    binding.bottomNavigation.visibility = View.VISIBLE
+                    binding.toolbar.visibility = View.GONE
+                }
                 else -> {
                     // Show the action bar and bottom navigation for other fragments
                     supportActionBar?.show()

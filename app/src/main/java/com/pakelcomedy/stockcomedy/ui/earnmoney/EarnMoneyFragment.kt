@@ -26,16 +26,10 @@ class EarnMoneyFragment : Fragment() {
         // Set initial cash balance value
         binding.cashBalanceValue.text = "$0"
 
-        // Handle Tap to Earn functionality
-        binding.tapIcon.setOnClickListener {
-            // Add the logic to increase cash balance (example: increase by $1)
-            updateCashBalance(1)
-        }
-
         // Handle click on the clickable area below the cashBalanceContainer
         binding.clickableArea.setOnClickListener {
             // Logic for what happens when the user clicks the area
-            updateCashBalance(5) // Example: Increase by $5
+            updateCashBalance(1) // Example: Increase by $5
         }
     }
 

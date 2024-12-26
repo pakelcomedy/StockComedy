@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="darkGray">#2E2E2E</color>
     <color name="blue">#00BFFF</color> <!-- Add the blue color -->
+    <color name="blackGray">#212121</color> <!-- Fixed the color name reference -->
 </resources>
